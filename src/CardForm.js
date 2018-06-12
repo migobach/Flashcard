@@ -4,14 +4,16 @@ class CardForm extends React.Component {
   state = { card: '' }
 
   handleChange = (e) => {
-    this.setState({ card: e.target.value })
+    const { name, value } = e.target
+    this.setState({ [name]:value })
+    console.log(name)
   }
 
   handleSubmit = (e) => {
     e.preventDefault();
-    console.log(this.state.card)
-    // this.addItem(this.state.card)
-    // this.setState({ card: '' })
+    this.props.addItem(this.state.question, this.state.answer)
+    console.log(this.state)
+    this.setState({ question: '', answer: '' })
   }
 
   
@@ -23,20 +25,19 @@ class CardForm extends React.Component {
       <form onSubmit={this.handleSubmit}>
         <input 
           value={card.question}
-          card="card"
+          name="question"
           onChange={this.handleChange}
           required 
           placeholder="Add a Question" 
         />
         <input
           value={card.answer}
-          card="card"
+          name="answer"
           onChange={this.handleChange}
           required
           placeholder="Add an Answer"
         />
-        <button>Submit</button>
-
+        <input type="submit" />
       </form>
     )
   }

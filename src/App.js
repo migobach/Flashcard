@@ -18,9 +18,9 @@ class App extends Component {
     .substring(1)
   }
 
-  addItem = (question) => {
+  addItem = (question, answer) => {
     const { cards } = this.state
-    const card = { id: this.getUniqId(), question }
+    const card = { id: this.getUniqId(), question, answer }
     this.setState({ cards: [card, ...cards] })
   }
 
