@@ -9,8 +9,9 @@ class CardForm extends React.Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.addItem(this.state.card)
-    this.setState({ card: '' })
+    console.log(this.state.card)
+    // this.addItem(this.state.card)
+    // this.setState({ card: '' })
   }
 
   
@@ -21,12 +22,21 @@ class CardForm extends React.Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <input 
-          value={card}
+          value={card.question}
           card="card"
           onChange={this.handleChange}
           required 
-          placeholder="Add a Card" 
+          placeholder="Add a Question" 
         />
+        <input
+          value={card.answer}
+          card="card"
+          onChange={this.handleChange}
+          required
+          placeholder="Add an Answer"
+        />
+        <button>Submit</button>
+
       </form>
     )
   }

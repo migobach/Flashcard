@@ -4,10 +4,9 @@ import Card from './Card';
 
 const CardList = ({ items, name }) => (
   <div>
-  console.log(cards)
     <h2>{name}</h2>
     <ul>
-      { items.map( card => <Card key={card.id} question={card.question} answer={card.answer} complete={card.complete}/> )}
+      { items.map( card => <li Card key={card.id}> <h1>{card.question}</h1> {card.answer} </li> )}
     </ul>
   </div>
 )
