@@ -6,7 +6,10 @@ const styles = {
 }
 
 const Card = ({ id, question, answer, complete }) => (
-    <li style={ complete ? {...styles.card, ...styles.complete } : styles.card }>
+    <li style={ complete ? {...styles.card, ...styles.complete } : styles.card } 
+    onClick={ () => this.props.cardClick(id) }>
+    
+
     {question}
     </li>
 )
